@@ -33,7 +33,7 @@ from scripts.image_identity import image_content_hash, image_context_pathspec, i
 DEFAULT_CONDA_ENV = "scarabinfra"
 _docker_client = None
 BASE_MEMORY_BY_MODE_KEY = "base_memory_mb_by_mode"
-VALID_SIMULATION_MODES = ("memtrace", "pt", "exec")
+VALID_SIMULATION_MODES = ("memtrace", "pt", "exec", "synthetic")
 
 # The container-side scarab-infra scripts are not baked into the images. Every
 # container instead gets the host checkout bind-mounted read-only here, and
@@ -1745,6 +1745,18 @@ def generate_single_scarab_run_command(user, workload_home, experiment, config_k
             f"\\\"{client_bincmd_safe}\\\" "                 # $11 CLIENT_BINCMD
             f"\\\"{scarab_binary}\\\""                       # $12 SCARAB_BIN
         )
+    elif mode == "synthetic":
+        command = (
+            "run_synthetic_single_simpoint.sh "
+            f"\\\"{workload_home}\\\" "
+            f"\\\"/home/{user}/simulations/{experiment}/{config_key}\\\" "
+            f"\\\"{config}\\\" "
+            f"\\\"{arch}\\\" "
+            f"\\\"/home/{user}/simulations/{experiment}/scarab\\\" "
+            f"\\\"{cluster_id}\\\" "
+            f"\\\"{scarab_binary}\\\""
+        )
+
     else:
         command = ""
 

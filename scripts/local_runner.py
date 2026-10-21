@@ -194,6 +194,8 @@ def run_simulation(user, descriptor_data, workloads_data, infra_dir, descriptor_
                 bincmd = simulation_data["binary_cmd"]
                 client_bincmd = simulation_data["client_bincmd"]
                 seg_size = simulation_data["segment_size"]
+            if sim_mode == "synthetic":
+                trace_warmup = simulation_data["warmup"]
 
             if "simpoints" not in workloads_data[suite][subsuite][workload].keys():
                 weight = 1
