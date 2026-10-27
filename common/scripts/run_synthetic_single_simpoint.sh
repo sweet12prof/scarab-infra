@@ -1,14 +1,26 @@
 #!/bin/bash
 source utilities.sh
 
-# 1. Map the 7 arguments we added to utilities.py
+# 1. Map the 9 arguments passed from utilities.py
 WORKLOAD_HOME="$1"
 SCENARIO="$2"
 SCARABPARAMS="$3"
-SCARABARCH="$4"
-SCARABHOME="$5"
-SEGMENT_ID="$6"
-SCARAB_BIN="$7"
+SEGSIZE="$4"
+SCARABARCH="$5"
+WARMUP="$6"
+SCARABHOME="$7"
+SEGMENT_ID="$8"
+SCARAB_BIN="$9"
+SYNTH_TARGET_POOL_SIZE="$10"
+SYNTH_TARGET_STRATEGY="$11"
+SYNTH_T_NT_RATIO="$12"
+SYNTH_LEVEL="$13"
+SYNTH_NUM_OF_DEPENDENCE_CHAINS="$14"
+SYNTH_INST_SIZE="$15"
+SYNTH_DIRECTION_STRATEGY="$16"
+SYNTH_WORKLOAD_LENGTH="$17 "
+SYNTH_NOP_SIZE="$18" 
+SYNTH_STARTING_TARGET="$19"
 
 # 2. Locate the correct PARAMS file (preserves the git-hash matching logic)
 PARAMS_FILE="$SCARABHOME/src/PARAMS.$SCARABARCH"
@@ -30,10 +42,13 @@ mkdir -p $OUTDIR/$segID
 cp "$PARAMS_FILE" "$OUTDIR/$segID/PARAMS.in"
 cd $OUTDIR/$segID
 
-# 4. Construct the Scarab command for the synthetic kernel
-# (Assuming ctype_pin_inst is your target frontend based on your previous note)
+instLimit=$(( $SEGSIZE + $WARMUP ))
+
+# 4. Construct the Scarab command with explicit warmup and instruction limit
 scarabCmd="$SCARABHOME/src/$SCARAB_BIN \
-  --frontend ctype_pin_inst \
+  --frontend synthetic \
+  --full_warmup=$WARMUP \
+  --inst_limit $instLimit \
   $SCARABPARAMS &> sim.log"
 
 # 5. Execute using the infra's perf_stat wrapper for overhead tracking

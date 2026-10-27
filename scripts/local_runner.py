@@ -180,6 +180,18 @@ def run_simulation(user, descriptor_data, workloads_data, infra_dir, descriptor_
             bincmd = ""
             client_bincmd = ""
             seg_size = None
+            target_stride = None
+            target_pool_size = None
+            t_nt_ratio = None
+            level = None
+            num_of_dependence_chains = None
+            inst_size = None
+            target_strategy = None
+            direction_strategy = None
+            workload_length = None
+            starting_target = None
+            nop_size = None
+            
             simulation_data = workloads_data[suite][subsuite][workload]["simulation"][sim_mode]
             if sim_mode == "memtrace":
                 trace_warmup = simulation_data["warmup"]
@@ -196,6 +208,18 @@ def run_simulation(user, descriptor_data, workloads_data, infra_dir, descriptor_
                 seg_size = simulation_data["segment_size"]
             if sim_mode == "synthetic":
                 trace_warmup = simulation_data["warmup"]
+                seg_size = simulation_data["segment_size"]
+                target_stride =simulation_data["target_stride"]
+                target_pool_size=simulation_data["target_pool_size"]
+                t_nt_ratio=simulation_data["t_nt_ratio"]
+                level=simulation_data["level"]
+                num_of_dependence_chains=simulation_data["num_of_dependence_chains"]
+                inst_size=simulation_data["inst_size"]
+                target_strategy=simulation_data["target_strategy"]
+                direction_strategy=simulation_data["direction_strategy"]
+                workload_length=simulation_data["workload_length"]
+                starting_target=simulation_data["starting_target"]
+                nop_size=simulation_data["nop_size"]
 
             if "simpoints" not in workloads_data[suite][subsuite][workload].keys():
                 weight = 1
@@ -232,7 +256,15 @@ def run_simulation(user, descriptor_data, workloads_data, infra_dir, descriptor_
                                                  docker_prefix, docker_container_name, traces_dir,
                                                  docker_home, config_key, config, sim_mode, scarab_binary,
                                                  seg_size, architecture, cluster_id, warmup, trace_warmup, trace_type,
-                                                 trace_file, env_vars, bincmd, client_bincmd, filename, infra_dir, application_dir, perf_stat=bool(descriptor_data.get("perf_stat", False)))
+                                                 trace_file, env_vars, bincmd, client_bincmd, filename, infra_dir, application_dir, perf_stat=bool(descriptor_data.get("perf_stat", False)),  
+                                                 target_stride=None,
+                                                 target_pool_size=target_pool_size,  
+                                                 t_nt_ratio=t_nt_ratio,
+                                                 level=level,
+                                                 num_of_dependence_chains=num_of_dependence_chains,
+                                                 inst_size=inst_size,
+                                                 target_strategy=target_strategy,
+                                                 direction_strategy=direction_strategy)
                     tmp_files.add(filename)
                     command = '/bin/bash ' + filename
                     remove_jobs.add((config_key, suite, subsuite, workload, cluster_id))

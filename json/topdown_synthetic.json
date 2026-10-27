@@ -27,14 +27,14 @@
       "workload": null,
       "cluster_id": null,
       "simulation_type": "synthetic",
-      "warmup": 0
+      "warmup": 10000000
     }
   ],
   "_configurations": "scarab configurations to sweep. slurm_options passes extra arguments to sbatch (ignored for manual runner); '--mem' is no longer needed here as memory is scheduled per-simpoint automatically. memory_overhead_mb (optional, default 0) adds a fixed MB overhead on top of the per-simpoint base memory for configs that allocate extra Scarab structures. Options: https://slurm.schedmd.com/sbatch.html",
   "configurations": {
     "icache_32k": {
       "params": "--icache_size 32768",
-      "binary": "scarab_head",
+      "binary": "scarab_8588ac57e3b782e8606c2ebbfed3d741a2be5078",
       "slurm_options": "",
       "memory_overhead_mb": 0
     }
