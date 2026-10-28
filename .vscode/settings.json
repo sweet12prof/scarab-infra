@@ -1,3 +1,9 @@
 {
-  "cmake.sourceDirectory": "/home/chris/Projects/scarab-infra/fingerprint_src"
+  "cmake.sourceDirectory": "/home/chris/Projects/scarab-infra/fingerprint_src",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "editor.formatOnSave": true
 }
