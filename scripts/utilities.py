@@ -103,24 +103,24 @@ def get_docker_client():
             _docker_client = None
     return _docker_client
 
-# Print an error message if on right debugging level
-def err(msg: str, level: int):
-    if level >= 1:
+# Print an error message if on right debugging mem_hierachy_level
+def err(msg: str, mem_hierachy_level: int):
+    if mem_hierachy_level >= 1:
         print("ERR:", msg)
 
-# Print warning message if on right debugging level
-def warn(msg: str, level: int):
-    if level >= 2:
+# Print warning message if on right debugging mem_hierachy_level
+def warn(msg: str, mem_hierachy_level: int):
+    if mem_hierachy_level >= 2:
         print("WARN:", msg)
 
-# Print info message if on right debugging level
-def info(msg: str, level: int):
-    if level >= 3:
+# Print info message if on right debugging mem_hierachy_level
+def info(msg: str, mem_hierachy_level: int):
+    if mem_hierachy_level >= 3:
         print("INFO:", msg)
 
-# Print a non-warning informational message at default debug levels
-def note(msg: str, level: int):
-    if level >= 2:
+# Print a non-warning informational message at default debug mem_hierachy_levels
+def note(msg: str, mem_hierachy_level: int):
+    if mem_hierachy_level >= 2:
         print("INFO:", msg)
 
 
@@ -586,7 +586,7 @@ def lint_scarab_binary(user, scarab_path, scarab_build, docker_home, docker_pref
         r"^(deps|ramulator|pin/pin_exec|pin/pin_trace|test)/"
         r"|^pin/pin_lib/decoder\.(cc|h)$"
     )
-    # Positive-list of scarab-owned top-level dirs that we DO want header
+    # Positive-list of scarab-owned top-mem_hierachy_level dirs that we DO want header
     # diagnostics from. We use a positive list rather than a negative one
     # because clang-tidy 18 does not yet support --exclude-header-filter
     # (added in clang-tidy 19) and llvm::Regex lacks negative lookahead.
@@ -595,10 +595,10 @@ def lint_scarab_binary(user, scarab_path, scarab_build, docker_home, docker_pref
     #   /scarab/src/<allowed_subdir>/...   (headers inside scarab source trees)
     #   /scarab/src/pin/pin_lib/...        (scarab-authored PIN glue; pin_exec/
     #                                       is the PIN tool and stays excluded)
-    #   /scarab/src/<top_level_file>       (headers directly under src/, e.g.
+    #   /scarab/src/<top_mem_hierachy_level_file>       (headers directly under src/, e.g.
     #                                       decoupled_frontend.h, ft.h, …)
     #
-    # If a new top-level source dir is added to scarab, append it here.
+    # If a new top-mem_hierachy_level source dir is added to scarab, append it here.
     scarab_owned_dirs = "bp|confidence|debug|dvfs|frontend|globals|isa|libs|memory|power|prefetcher|support"
     header_filter_re = (
         rf"^/scarab/src/({scarab_owned_dirs})/"
@@ -660,7 +660,7 @@ def lint_scarab_binary(user, scarab_path, scarab_build, docker_home, docker_pref
         "\n"
         # Post-filter on findings is (mostly) redundant with --header-filter
         # now, but we keep it as defense-in-depth in case a diagnostic from
-        # a vendored tree slips through (e.g. if a new top-level dir gets
+        # a vendored tree slips through (e.g. if a new top-mem_hierachy_level dir gets
         # added to scarab_owned_dirs and someone forgets to update the list).
         "{ grep -E 'warning:.*\\[cppcoreguidelines-pro-type-member-init\\]' \"$LOG\" \\\n"
         f"    | grep -vE '{header_exclude_re}' \\\n"
@@ -1721,8 +1721,8 @@ def finish_simulation(user, docker_home, descriptor_path, root_dir, experiment_n
 def generate_single_scarab_run_command(user, workload_home, experiment, config_key, config,
                                        mode, seg_size, arch, scarab_binary, cluster_id,
                                        warmup, trace_warmup, trace_type, trace_file,
-                                       env_vars, bincmd, client_bincmd, target_pool_size, t_nt_ratio, level, num_of_dependence_chains,
-                                       inst_size, target_strategy, direction_strategy, workload_length, nop_size, starting_target):
+                                       env_vars, bincmd, client_bincmd, target_stride, target_pool_size, t_nt_ratio, mem_hierachy_level, dependence_chain_count,
+                                       inst_size, target_sampling_strategy, direction_sampling_strategy, workload_length, nop_size, starting_target):
 
     if mode == "memtrace":
         command = f"run_memtrace_single_simpoint.sh \\\"{workload_home}\\\" \\\"/home/{user}/simulations/{experiment}/{config_key}\\\" \\\"{config}\\\" \\\"{seg_size}\\\" \\\"{arch}\\\" \\\"{warmup}\\\" \\\"{trace_warmup}\\\" \\\"{trace_type}\\\" /home/{user}/simulations/{experiment}/scarab {cluster_id} {trace_file} {scarab_binary}"
@@ -1745,9 +1745,6 @@ def generate_single_scarab_run_command(user, workload_home, experiment, config_k
             f"\\\"{bincmd}\\\" "                             # $10 BINCMD (stay as one arg)
             f"\\\"{client_bincmd_safe}\\\" "                 # $11 CLIENT_BINCMD
             f"\\\"{scarab_binary}\\\""                       # $12 SCARAB_BIN
-            f"\\\"{workload_length}\\\""                     # $13 WORKLOAD_LENGTH
-            f"\\\"{nop_size}\\\""                            # $14 NOP_SIZE 
-            f"\\\"{starting_target}\\\""                     # $15 STARTING_TARGET
         )
         
     elif mode == "synthetic":
@@ -1766,12 +1763,17 @@ def generate_single_scarab_run_command(user, workload_home, experiment, config_k
             f"\\\"{cluster_id}\\\" "                         # $8 SEGMENT_ID
             f"\\\"{scarab_binary}\\\""                       # $9 SCARAB_BIN
             f"\\\"{target_pool_size}\\\""                    # $10 SYNTHETIC_KERNEL_KNOB_target_pool_size
-            f"\\\"{target_strategy}\\\""                     # $11 SYNTHETIC_KERNEL_KNOB_target_strategy
+            f"\\\"{target_sampling_strategy}\\\""            # $11 SYNTHETIC_KERNEL_KNOB_target_sampling_strategy
             f"\\\"{t_nt_ratio}\\\""                          # $12 SYNTHETIC_KERNEL_KNOB_t_nt_ratio
-            f"\\\"{level}\\\""                               # $13 SYNTHETIC_KERNEL_KNOB_level
-            f"\\\"{num_of_dependence_chains}\\\""            # $14 SYNTHETIC_KERNEL_KNOB_num_of_dependence_chain
+            f"\\\"{mem_hierachy_level}\\\""                  # $13 SYNTHETIC_KERNEL_KNOB_mem_hierachy_level
+            f"\\\"{dependence_chain_count}\\\""              # $14 SYNTHETIC_KERNEL_KNOB_dependence_chain_count
             f"\\\"{inst_size}\\\""                           # $15 SYNTHETIC_KERNEL_KNOB_inst_size
-            f"\\\"{direction_strategy}\\\""                  # $16 SYNTHETIC_KERNEL_KNOB_direction_strategy
+            f"\\\"{direction_sampling_strategy}\\\""         # $16 SYNTHETIC_KERNEL_KNOB_direction_sampling_strategy
+            f"\\\"{workload_length}\\\""                     # $17 SYNTHETIC_KERNEL_KNOB_workload_length
+            f"\\\"{nop_size}\\\""                            # $18 SYNTHETIC_KERNEL_KNOB_nop_size
+            f"\\\"{starting_target}\\\""                     # $19 SYNTHETIC_KERNEL_KNOB_starting_target
+            f"\\\"{target_stride}\\\""                       # $20 SYNTHETIC_KERNEL_KNOB_target_stride
+
         )
 
     else:
@@ -1790,20 +1792,22 @@ def write_docker_command_to_file(user, local_uid, local_gid, workload, workload_
                                  docker_home, config_key, config, scarab_mode, scarab_binary,
                                  seg_size, architecture, cluster_id, warmup, trace_warmup, trace_type,
                                  trace_file, env_vars, bincmd, client_bincmd, filename, infra_dir, application_dir, slurm=False,
-                                 perf_stat=False,                                 target_pool_size=None,  
+                                 perf_stat=False,                                 
+                                 target_stride =None
+                                 ,target_pool_size=None,  
                                                                                   t_nt_ratio=None,
-                                                                                  level=None,
-                                                                                  num_of_dependence_chains=None,
+                                                                                  mem_hierachy_level=None,
+                                                                                  dependence_chain_count=None,
                                                                                   inst_size=None,
-                                                                                  target_strategy=None,
-                                                                                  direction_strategy=None,                                                  
+                                                                                  target_sampling_strategy=None,
+                                                                                  direction_sampling_strategy=None,                                                  
                                                                                   workload_length=None, 
                                                                                   nop_size=None, 
                                                                                   starting_target=None):
     try:
         scarab_cmd = generate_single_scarab_run_command(user, workload_home, experiment_name, config_key, config,
                                                         scarab_mode, seg_size, architecture, scarab_binary, cluster_id,
-                                                        warmup, trace_warmup, trace_type, trace_file, env_vars, bincmd, client_bincmd, target_pool_size, t_nt_ratio, level, num_of_dependence_chains, inst_size, target_strategy, direction_strategy, 
+                                                        warmup, trace_warmup, trace_type, trace_file, env_vars, bincmd, client_bincmd, target_stride, target_pool_size, t_nt_ratio, mem_hierachy_level, dependence_chain_count, inst_size, target_sampling_strategy, direction_sampling_strategy, 
                                                         workload_length, nop_size, starting_target)
         # Descriptor "perf_stat": true makes a run fail when perf cannot count host instructions
         # on its node, instead of running unmeasured.

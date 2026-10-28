@@ -41656,21 +41656,24 @@
   },
   "SYNTHETIC_SUITE": {
     "MEM_LIMITED": {
-      "dcache_limited": {
+      "load_latency_limited": {
         "simulation": {
           "prioritized_mode": "synthetic",
           "synthetic": {
             "warmup": 10000000,
             "segment_size": 10000000,
             "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
+            "target_stride": "128",
+            "target_pool_size": "1024",
             "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
+            "mem_hierachy_level": "dcache_level",
+            "dependence_chain_count": "1",
+            "inst_size": "8",
+            "nop_size": "8",
+            "target_sampling_strategy": "uniform_sequential",
+            "direction_sampling_strategy": "", 
+            "workload_length" : "1024",
+            "starting_target" : "256"
           },
           "simpoints": {
             "cluster_id": 0,
@@ -41691,7 +41694,7 @@
           }
         }
       },
-      "mem_bandwidth_limited_1FU": {
+      "mem_fu_limited": {
         "simulation": {
           "prioritized_mode": "synthetic",
           "synthetic": {
@@ -41702,182 +41705,7 @@
             "target_pool_size": "",
             "t_nt_ratio": "",
             "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "mem_bandwidth_limited_2FU": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "mem_bandwidth_limited_4FU": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "mlc_limited": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "llc_limited": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "mem_limited": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
+            "dependence_chain_count": "",
             "inst_size": "",
             "target_strategy": "",
             "direction_strategy": ""
@@ -41903,7 +41731,7 @@
       }
     },
     "CF_LIMITED": {
-      "cbr_limited_20t": {
+      "cbr_limited": {
         "simulation": {
           "prioritized_mode": "synthetic",
           "synthetic": {
@@ -41914,7 +41742,7 @@
             "target_pool_size": "",
             "t_nt_ratio": "",
             "level": "",
-            "num_of_dependence_chains": "",
+            "dependence_chain_count": "",
             "inst_size": "",
             "target_strategy": "",
             "direction_strategy": ""
@@ -41938,7 +41766,7 @@
           }
         }
       },
-      "cbr_limited_50t": {
+      "btb_limited": {
         "simulation": {
           "prioritized_mode": "synthetic",
           "synthetic": {
@@ -41949,7 +41777,7 @@
             "target_pool_size": "",
             "t_nt_ratio": "",
             "level": "",
-            "num_of_dependence_chains": "",
+            "dependence_chain_count": "",
             "inst_size": "",
             "target_strategy": "",
             "direction_strategy": ""
@@ -41973,7 +41801,8 @@
           }
         }
       },
-      "cbr_limited_80t": {
+
+      "ibr_limited": {
         "simulation": {
           "prioritized_mode": "synthetic",
           "synthetic": {
@@ -41984,182 +41813,7 @@
             "target_pool_size": "",
             "t_nt_ratio": "",
             "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "btb_limited_full_capacity_sweep": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "ibr_limited_RR_4Tgts": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "ibr_limited_random_4Tgts": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "ibr_limited_random_2Tgts": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "mem_limited": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
+            "dependence_chain_count": "",
             "inst_size": "",
             "target_strategy": "",
             "direction_strategy": ""
@@ -42185,7 +41839,7 @@
       }
     },
     "ILP_LIMITED": {
-      "ilp_limited_1_dep_chain": {
+      "ilp_limited": {
         "simulation": {
           "prioritized_mode": "synthetic",
           "synthetic": {
@@ -42196,77 +41850,7 @@
             "target_pool_size": "",
             "t_nt_ratio": "",
             "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "ilp_limited_2_dep_chain": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
-          },
-          "simpoints": {
-            "cluster_id": 0,
-            "segment_id": 0,
-            "weight": 1.0
-          },
-          "performance": {
-            "topdown": {
-              "retiring": null,
-              "bad_speculation": null,
-              "frontend_bound": null,
-              "backend_bound": null
-            },
-            "execution_time": {
-              "min": null,
-              "sec": null
-            }
-          }
-        }
-      },
-      "ilp_limited_4_dep_chain": {
-        "simulation": {
-          "prioritized_mode": "synthetic",
-          "synthetic": {
-            "warmup": 10000000,
-            "segment_size": 10000000,
-            "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "num_of_dependence_chains": "",
+            "dependence_chain_count": "",
             "inst_size": "",
             "target_strategy": "",
             "direction_strategy": ""
@@ -42303,7 +41887,7 @@
             "target_pool_size": "",
             "t_nt_ratio": "",
             "level": "",
-            "num_of_dependence_chains": "",
+            "dependence_chain_count": "",
             "inst_size": "",
             "target_strategy": "",
             "direction_strategy": ""
