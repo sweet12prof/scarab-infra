@@ -34,7 +34,7 @@
   "configurations": {
     "icache_32k": {
       "params": "--icache_size 32768",
-      "binary": "scarab_current",
+      "binary": "scarab_7c0c5405e36fe8b2b420c8a1767d0fdacef35d26",
       "slurm_options": "",
       "memory_overhead_mb": 0
     }
