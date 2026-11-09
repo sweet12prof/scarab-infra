@@ -209,17 +209,17 @@ def run_simulation(user, descriptor_data, workloads_data, infra_dir, descriptor_
             if sim_mode == "synthetic":
                 trace_warmup = simulation_data["warmup"]
                 seg_size = simulation_data["segment_size"]
-                target_stride =simulation_data["target_stride"]
-                target_pool_size=simulation_data["target_pool_size"]
-                t_nt_ratio=simulation_data["t_nt_ratio"]
-                mem_hierachy_level=simulation_data["mem_hierachy_level"]
-                dependence_chain_count=simulation_data["dependence_chain_count"]
-                inst_size=simulation_data["inst_size"]
-                target_sampling_strategy=simulation_data["target_sampling_strategy"]
-                direction_sampling_strategy=simulation_data["direction_sampling_strategy"]
-                workload_length=simulation_data["workload_length"]
-                starting_target=simulation_data["starting_target"]
-                nop_size=simulation_data["nop_size"]
+                target_stride =simulation_data.get("target_stride", None); 
+                target_pool_size=simulation_data.get("target_pool_size", None)
+                t_nt_ratio=simulation_data.get("t_nt_ratio", None)
+                mem_hierachy_level=simulation_data.get("mem_hierachy_level", None)
+                dependence_chain_count=simulation_data.get("dependence_chain_count", None)
+                inst_size=simulation_data.get("inst_size", None)
+                target_sampling_strategy=simulation_data.get("target_sampling_strategy", None)
+                direction_sampling_strategy=simulation_data.get("direction_sampling_strategy", None)
+                workload_length=simulation_data.get("workload_length", None)
+                starting_target=simulation_data.get("starting_target", None)
+                nop_size=simulation_data.get("nop_size", None)
 
             if "simpoints" not in workloads_data[suite][subsuite][workload].keys():
                 weight = 1

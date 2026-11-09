@@ -1761,18 +1761,18 @@ def generate_single_scarab_run_command(user, workload_home, experiment, config_k
             f"\\\"{warmup}\\\" "                             # $6 WARMUP
             f"\\\"/home/{user}/simulations/{experiment}/scarab\\\" "  # $7 SCARABHOME
             f"\\\"{cluster_id}\\\" "                         # $8 SEGMENT_ID
-            f"\\\"{scarab_binary}\\\""                       # $9 SCARAB_BIN
-            f"\\\"{target_pool_size}\\\""                    # $10 SYNTHETIC_KERNEL_KNOB_target_pool_size
-            f"\\\"{target_sampling_strategy}\\\""            # $11 SYNTHETIC_KERNEL_KNOB_target_sampling_strategy
-            f"\\\"{t_nt_ratio}\\\""                          # $12 SYNTHETIC_KERNEL_KNOB_t_nt_ratio
-            f"\\\"{mem_hierachy_level}\\\""                  # $13 SYNTHETIC_KERNEL_KNOB_mem_hierachy_level
-            f"\\\"{dependence_chain_count}\\\""              # $14 SYNTHETIC_KERNEL_KNOB_dependence_chain_count
-            f"\\\"{inst_size}\\\""                           # $15 SYNTHETIC_KERNEL_KNOB_inst_size
-            f"\\\"{direction_sampling_strategy}\\\""         # $16 SYNTHETIC_KERNEL_KNOB_direction_sampling_strategy
-            f"\\\"{workload_length}\\\""                     # $17 SYNTHETIC_KERNEL_KNOB_workload_length
-            f"\\\"{nop_size}\\\""                            # $18 SYNTHETIC_KERNEL_KNOB_nop_size
-            f"\\\"{starting_target}\\\""                     # $19 SYNTHETIC_KERNEL_KNOB_starting_target
-            f"\\\"{target_stride}\\\""                       # $20 SYNTHETIC_KERNEL_KNOB_target_stride
+            f"\\\"{scarab_binary}\\\" "                       # $9 SCARAB_BIN
+            f"\\\"{target_pool_size}\\\" "                    # $10 SYNTHETIC_KERNEL_KNOB_target_pool_size
+            f"\\\"{target_sampling_strategy}\\\" "            # $11 SYNTHETIC_KERNEL_KNOB_target_sampling_strategy
+            f"\\\"{t_nt_ratio}\\\" "                          # $12 SYNTHETIC_KERNEL_KNOB_t_nt_ratio
+            f"\\\"{mem_hierachy_level}\\\" "                  # $13 SYNTHETIC_KERNEL_KNOB_mem_hierachy_level
+            f"\\\"{dependence_chain_count}\\\" "              # $14 SYNTHETIC_KERNEL_KNOB_dependence_chain_count
+            f"\\\"{inst_size}\\\" "                           # $15 SYNTHETIC_KERNEL_KNOB_inst_size
+            f"\\\"{direction_sampling_strategy}\\\" "         # $16 SYNTHETIC_KERNEL_KNOB_direction_sampling_strategy
+            f"\\\"{workload_length}\\\" "                     # $17 SYNTHETIC_KERNEL_KNOB_workload_length
+            f"\\\"{nop_size}\\\" "                            # $18 SYNTHETIC_KERNEL_KNOB_nop_size
+            f"\\\"{starting_target}\\\" "                     # $19 SYNTHETIC_KERNEL_KNOB_starting_target
+            f"\\\"{target_stride}\\\""                        # $20 SYNTHETIC_KERNEL_KNOB_target_stride
 
         )
 

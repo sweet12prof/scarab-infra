@@ -2,7 +2,7 @@
   "_descriptor_type": "A type of descriptor. One of 'simulation', 'trace', and 'perf'.",
   "descriptor_type": "simulation",
   "_architecture": "A name of the available architectures (PARAMS.<architecture>) found in scarab repository, which defines the machine parameters of the default configuration.",
-  "architecture": "golden_cove",
+  "architecture": "sunny_cove",
   "_experiment": "The name of the experiment. scarab-infra will create a new folder named containing all files needed to execute the simulation in the <ROOT_DIR>/simulations/<experiment> directory. The folder will also contain all generated simulation statistics/outputs.",
   "experiment": "topdown_exclusive_counters",
   "_workload_manager": "manual: run each exp scenario with all the simpoints at a time, slurm: Slurm schedules simulations based on its policy",
@@ -23,8 +23,8 @@
   "simulations": [
     {
       "suite": "SYNTHETIC_SUITE",
-      "subsuite": null,
-      "workload": null,
+      "subsuite": "CF_LIMITED",
+      "workload": "cbr_limited",
       "cluster_id": null,
       "simulation_type": "synthetic",
       "warmup": 10000000
@@ -33,7 +33,7 @@
   "_configurations": "scarab configurations to sweep. slurm_options passes extra arguments to sbatch (ignored for manual runner); '--mem' is no longer needed here as memory is scheduled per-simpoint automatically. memory_overhead_mb (optional, default 0) adds a fixed MB overhead on top of the per-simpoint base memory for configs that allocate extra Scarab structures. Options: https://slurm.schedmd.com/sbatch.html",
   "configurations": {
     "icache_32k": {
-      "params": "--icache_size 32768",
+      "params": "--btb_entries 1048576 --btb_assoc 1024 --uop_cache_lines 1048576 --uop_cache_assoc 1024 --icache_size 524288 --icache_assoc  512"  ,
       "binary": "scarab_7c0c5405e36fe8b2b420c8a1767d0fdacef35d26",
       "slurm_options": "",
       "memory_overhead_mb": 0
@@ -58,10 +58,6 @@
         "TOPDOWN_FETCH_BANDWIDTH_BOUND",
         "TOPDOWN_MEM_BOUND",
         "TOPDOWN_CORE_BOUND",
-        "TOPDOWN_CORE_ILP_BOUND_ONPATH",
-        "TOPDOWN_CORE_ILP_BOUND_ALL",
-        "TOPDOWN_CORE_BANDWIDTH_BOUND_ONPATH",
-        "TOPDOWN_CORE_BANDWIDTH_BOUND_ALL",
         "TOPDOWN_BR_RECOVER_AT_EXEC_BOUND",
         "TOPDOWN_MACHINE_CLEARS_BOUND"
       ],

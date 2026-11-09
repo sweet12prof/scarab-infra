@@ -27793,7 +27793,7 @@
             "image_name": "spec2026",
             "segment_size": 10000000,
             "env_vars": "SCARAB_COPY_LOCAL_RUNDIR=1",
-            "binary_cmd": "\\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/marian-decoder_base.memtrace --cpu-threads 1 -m \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/model.alphas.npz -v \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/vocab.spm \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/vocab.spm --beam-size 1 --mini-batch 32 --maxi-batch 100 --maxi-batch-sort src -w 512 --skip-cost --gemm-type intgemm8 --intgemm-options precomputed-alpha standard-only --quiet --quiet-translation -i \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/TildeMODEL-spec.en --log TildeMODEL-spec.log --log-level off -o TildeMODEL-spec.out",
+            "binary_cmd": "\\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/marian-decoder_base.memtrace --cpu-threads 1 -m \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/model.alphas.npz -v \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/vocab.spm \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/vocab.spm --beam-size 1 --mini-batch 32 --maxi-batch 100 --maxi-batch-sort src -w 512 --skip-cost --gemm-type intgemm8 --intgemm-options precomputed-alpha standard-only --quiet --quiet-translation -i \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/TildeMODEL-spec.en --log TildeMODEL-spec.log --log-mem_hierachy_level off -o TildeMODEL-spec.out",
             "client_bincmd": null
           },
           "memtrace": {
@@ -27981,7 +27981,7 @@
             "image_name": "spec2026",
             "segment_size": 10000000,
             "env_vars": "SCARAB_COPY_LOCAL_RUNDIR=1",
-            "binary_cmd": "\\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/marian-decoder_base.memtrace --cpu-threads 1 -m \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/model.alphas.npz -v \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/vocab.spm \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/vocab.spm --beam-size 1 --mini-batch 32 --maxi-batch 100 --maxi-batch-sort src -w 512 --skip-cost --gemm-type intgemm8 --intgemm-options precomputed-alpha standard-only --quiet --quiet-translation -i \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/EuroPat-spec.en --log EuroPat-spec.log --log-level off -o EuroPat-spec.out",
+            "binary_cmd": "\\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/marian-decoder_base.memtrace --cpu-threads 1 -m \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/model.alphas.npz -v \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/vocab.spm \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/vocab.spm --beam-size 1 --mini-batch 32 --maxi-batch 100 --maxi-batch-sort src -w 512 --skip-cost --gemm-type intgemm8 --intgemm-options precomputed-alpha standard-only --quiet --quiet-translation -i \\$tmpdir/application/cpu2026/benchspec/CPU/772.marian_r/run/run_base_refrate_memtrace.0000/EuroPat-spec.en --log EuroPat-spec.log --log-mem_hierachy_level off -o EuroPat-spec.out",
             "client_bincmd": null
           },
           "memtrace": {
@@ -41285,7 +41285,7 @@
             "image_name": "rocksdb",
             "segment_size": 10000000,
             "env_vars": "DB_DIR=/tmp/rocksdbtest-1000/ WAL_DIR=/tmp/rocksdbtest-1000/ NUM_KEYS=100000000",
-            "binary_cmd": "\\$tmpdir/rocksdb/db_bench --benchmarks=readwhilewriting,stats --duration=300 --use_existing_db=1 --sync=1 --level0_file_num_compaction_trigger=4 --level0_slowdown_writes_trigger=20 --level0_stop_writes_trigger=30 --max_background_jobs=16 --max_write_buffer_number=8 --undefok=use_blob_cache,use_shared_block_and_blob_cache,blob_cache_size,blob_cache_numshardbits,prepopulate_blob_cache,multiread_batched,cache_low_pri_pool_ratio,prepopulate_block_cache --db=/tmp/rocksdbtest-1000/ --wal_dir=/tmp/rocksdbtest-1000/ --num=100000000 --key_size=20 --value_size=400 --block_size=8192 --cache_size=17179869184 --cache_numshardbits=6 --compression_max_dict_bytes=0 --compression_ratio=0.5 --compression_type=zstd --bytes_per_sync=1048576 --benchmark_write_rate_limit=0 --write_buffer_size=134217728 --target_file_size_base=134217728 --max_bytes_for_level_base=1073741824 --verify_checksum=1 --delete_obsolete_files_period_micros=62914560 --max_bytes_for_level_multiplier=8 --statistics=0 --stats_per_interval=1 --stats_interval_seconds=60 --report_interval_seconds=1 --histogram=1 --memtablerep=skip_list --bloom_bits=10 --open_files=-1 --subcompactions=1 --compaction_style=0 --num_levels=8 --min_level_to_compress=-1 --level_compaction_dynamic_level_bytes=true --pin_l0_filter_and_index_blocks_in_cache=1 --threads=1 --merge_operator=\"put\" --seed=1705975943 --report_file=/tmp/benchmark_readwhilewriting.t64.log.r.csv 2>&1 | tee -a /tmp/benchmark_readwhilewriting.t64.log",
+            "binary_cmd": "\\$tmpdir/rocksdb/db_bench --benchmarks=readwhilewriting,stats --duration=300 --use_existing_db=1 --sync=1 --mem_hierachy_level0_file_num_compaction_trigger=4 --mem_hierachy_level0_slowdown_writes_trigger=20 --mem_hierachy_level0_stop_writes_trigger=30 --max_background_jobs=16 --max_write_buffer_number=8 --undefok=use_blob_cache,use_shared_block_and_blob_cache,blob_cache_size,blob_cache_numshardbits,prepopulate_blob_cache,multiread_batched,cache_low_pri_pool_ratio,prepopulate_block_cache --db=/tmp/rocksdbtest-1000/ --wal_dir=/tmp/rocksdbtest-1000/ --num=100000000 --key_size=20 --value_size=400 --block_size=8192 --cache_size=17179869184 --cache_numshardbits=6 --compression_max_dict_bytes=0 --compression_ratio=0.5 --compression_type=zstd --bytes_per_sync=1048576 --benchmark_write_rate_limit=0 --write_buffer_size=134217728 --target_file_size_base=134217728 --max_bytes_for_mem_hierachy_level_base=1073741824 --verify_checksum=1 --delete_obsolete_files_period_micros=62914560 --max_bytes_for_mem_hierachy_level_multiplier=8 --statistics=0 --stats_per_interval=1 --stats_interval_seconds=60 --report_interval_seconds=1 --histogram=1 --memtablerep=skip_list --bloom_bits=10 --open_files=-1 --subcompactions=1 --compaction_style=0 --num_mem_hierachy_levels=8 --min_mem_hierachy_level_to_compress=-1 --mem_hierachy_level_compaction_dynamic_mem_hierachy_level_bytes=true --pin_l0_filter_and_index_blocks_in_cache=1 --threads=1 --merge_operator=\"put\" --seed=1705975943 --report_file=/tmp/benchmark_readwhilewriting.t64.log.r.csv 2>&1 | tee -a /tmp/benchmark_readwhilewriting.t64.log",
             "client_bincmd": null
           },
           "memtrace": {
@@ -41663,17 +41663,17 @@
             "warmup": 10000000,
             "segment_size": 10000000,
             "image_name": "allbench_traces",
-            "target_stride": "128",
-            "target_pool_size": "1024",
-            "t_nt_ratio": "",
+            "target_stride": 128,
+            "target_pool_size": 1024,
+            "t_nt_ratio": 0.5,
             "mem_hierachy_level": "dcache_level",
-            "dependence_chain_count": "1",
-            "inst_size": "8",
-            "nop_size": "8",
+            "dependence_chain_count": 1,
+            "inst_size": 8,
             "target_sampling_strategy": "uniform_sequential",
             "direction_sampling_strategy": "", 
-            "workload_length" : "1024",
-            "starting_target" : "256"
+            "workload_length" : 1024,
+            "starting_target" : 256,
+            "nop_size": 8
           },
           "simpoints": {
             "cluster_id": 0,
@@ -41704,11 +41704,14 @@
             "target_stride": "",
             "target_pool_size": "",
             "t_nt_ratio": "",
-            "level": "",
+            "mem_hierachy_level": "",
             "dependence_chain_count": "",
             "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
+            "target_sampling_strategy": "",
+                        "direction_sampling_strategy": "", 
+            "workload_length" : "1024",
+            "starting_target" : "256",
+            "nop_size": "8"
           },
           "simpoints": {
             "cluster_id": 0,
@@ -41738,14 +41741,16 @@
             "warmup": 10000000,
             "segment_size": 10000000,
             "image_name": "allbench_traces",
-            "target_stride": "",
-            "target_pool_size": "",
-            "t_nt_ratio": "",
-            "level": "",
-            "dependence_chain_count": "",
-            "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
+            "target_stride": "128",
+            "target_pool_size": "1024",
+            "t_nt_ratio": "0.5",
+            "mem_hierachy_level": null,
+            "inst_size": "1",
+            "target_sampling_strategy": "uniform_random",
+            "direction_sampling_strategy": "discrete_random", 
+            "workload_length" : "1024",
+            "starting_target" : "256",
+            "nop_size": "1"
           },
           "simpoints": {
             "cluster_id": 0,
@@ -41776,11 +41781,14 @@
             "target_stride": "",
             "target_pool_size": "",
             "t_nt_ratio": "",
-            "level": "",
+            "mem_hierachy_level": "",
             "dependence_chain_count": "",
             "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
+            "target_sampling_strategy": "",
+                        "direction_sampling_strategy": "", 
+            "workload_length" : "1024",
+            "starting_target" : "256",
+            "nop_size": "8"
           },
           "simpoints": {
             "cluster_id": 0,
@@ -41812,11 +41820,14 @@
             "target_stride": "",
             "target_pool_size": "",
             "t_nt_ratio": "",
-            "level": "",
+            "mem_hierachy_level": "",
             "dependence_chain_count": "",
             "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
+            "target_sampling_strategy": "",
+                        "direction_sampling_strategy": "", 
+            "workload_length" : "1024",
+            "starting_target" : "256",
+            "nop_size": "8"
           },
           "simpoints": {
             "cluster_id": 0,
@@ -41849,11 +41860,14 @@
             "target_stride": "",
             "target_pool_size": "",
             "t_nt_ratio": "",
-            "level": "",
+            "mem_hierachy_level": "",
             "dependence_chain_count": "",
             "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
+            "target_sampling_strategy": "",
+                        "direction_sampling_strategy": "", 
+            "workload_length" : "1024",
+            "starting_target" : "256",
+            "nop_size": "8"
           },
           "simpoints": {
             "cluster_id": 0,
@@ -41886,11 +41900,14 @@
             "target_stride": "",
             "target_pool_size": "",
             "t_nt_ratio": "",
-            "level": "",
+            "mem_hierachy_level": "",
             "dependence_chain_count": "",
             "inst_size": "",
-            "target_strategy": "",
-            "direction_strategy": ""
+            "target_sampling_strategy": "",
+                        "direction_sampling_strategy": "", 
+            "workload_length" : "1024",
+            "starting_target" : "256",
+            "nop_size": "8"
           },
           "simpoints": {
             "cluster_id": 0,
