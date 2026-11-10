@@ -207,9 +207,9 @@ def run_simulation(user, descriptor_data, workloads_data, infra_dir, descriptor_
                 client_bincmd = simulation_data["client_bincmd"]
                 seg_size = simulation_data["segment_size"]
             if sim_mode == "synthetic":
-                trace_warmup = simulation_data["warmup"]
-                seg_size = simulation_data["segment_size"]
-                target_stride =simulation_data.get("target_stride", None); 
+                trace_warmup = simulation_data.get("trace_warmup", 0)
+                seg_size = simulation_data.get("segment_size", None)
+                target_stride =simulation_data.get("target_stride", None)
                 target_pool_size=simulation_data.get("target_pool_size", None)
                 t_nt_ratio=simulation_data.get("t_nt_ratio", None)
                 mem_hierachy_level=simulation_data.get("mem_hierachy_level", None)

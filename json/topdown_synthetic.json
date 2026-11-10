@@ -34,7 +34,7 @@
   "configurations": {
     "icache_32k": {
       "params": "--btb_entries 1048576 --btb_assoc 1024 --uop_cache_lines 1048576 --uop_cache_assoc 1024 --icache_size 524288 --icache_assoc  512"  ,
-      "binary": "scarab_7c0c5405e36fe8b2b420c8a1767d0fdacef35d26",
+      "binary": "scarab_6e46a4c843e33a58d79c2135ec70df7a90275bda",
       "slurm_options": "",
       "memory_overhead_mb": 0
     }

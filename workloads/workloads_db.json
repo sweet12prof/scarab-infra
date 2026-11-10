@@ -41742,7 +41742,7 @@
             "segment_size": 10000000,
             "image_name": "allbench_traces",
             "target_stride": "128",
-            "target_pool_size": "1024",
+            "target_pool_size": "256",
             "t_nt_ratio": "0.5",
             "mem_hierachy_level": null,
             "inst_size": "1",
